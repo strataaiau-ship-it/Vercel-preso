@@ -103,6 +103,14 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  color: transparent;
+}
+
+/* Fallback for browsers that don't support background-clip */
+@supports not (background-clip: text) {
+  .gradient-text {
+    color: #0070F3;
+  }
 }
 
 /* Star Field Animation */

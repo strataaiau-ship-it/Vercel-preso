@@ -27,6 +27,9 @@ export function GoalSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
+  console.log("[v0] GoalSection rendering, count:", count);
+  console.log("[v0] isInView:", isInView, "hasAnimated:", hasAnimated);
+
   useEffect(() => {
     if (isInView && !hasAnimated) {
       setHasAnimated(true);
@@ -76,11 +79,11 @@ export function GoalSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-8"
         >
-          <div className="text-[120px] font-bold tracking-[-0.02em] gradient-text leading-none">
+          <div className="text-[120px] font-bold tracking-[-0.02em] gradient-text leading-none" style={{ color: 'transparent' }}>
             ${count}M
           </div>
-          <p className="text-[32px] text-white mt-4">ARR by 2030</p>
-          <p className="text-[18px] text-[#888888] mt-2 max-w-xl mx-auto leading-relaxed">
+          <p className="text-[32px] mt-4" style={{ color: '#FFFFFF' }}>ARR by 2030</p>
+          <p className="text-[18px] mt-2 max-w-xl mx-auto leading-relaxed" style={{ color: '#888888' }}>
             Scale Vercel AUNZ Enterprise segment to a USD $30M ARR business
           </p>
         </motion.div>
