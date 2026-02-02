@@ -16,7 +16,6 @@ import { MarketingPartnershipsSection } from "@/components/sections/marketing-pa
 import { OperatingModelSection } from "@/components/sections/operating-model";
 import { DayPlanSection } from "@/components/sections/day-plan";
 import { NextStepsSection } from "@/components/sections/next-steps";
-import { ManifestoSection } from "@/components/sections/manifesto";
 import { ThankYouSection } from "@/components/sections/thank-you";
 
 const SECTIONS = [
@@ -32,8 +31,7 @@ const SECTIONS = [
   { id: "operating", name: "Operating", number: "10" },
   { id: "day-plan", name: "30/60/90", number: "11" },
   { id: "next-steps", name: "Next Steps", number: "12" },
-  { id: "manifesto", name: "Manifesto", number: "13" },
-  { id: "thank-you", name: "Thank You", number: "14" },
+  { id: "thank-you", name: "Thank You", number: "13" },
 ];
 
 export default function Presentation() {
@@ -166,11 +164,7 @@ export default function Presentation() {
         <section id="next-steps" className="snap-section">
           <NextStepsSection />
         </section>
-        
-        <section id="manifesto" className="snap-section">
-          <ManifestoSection />
-        </section>
-        
+
         <section id="thank-you" className="snap-section">
           <ThankYouSection />
         </section>
