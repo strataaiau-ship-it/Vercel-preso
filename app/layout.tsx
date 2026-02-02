@@ -1,7 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { Inter, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const inter = Inter({ 
@@ -51,7 +50,6 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased bg-black text-white`}>
         {children}
-        <Analytics />
       </body>
     </html>
   )
