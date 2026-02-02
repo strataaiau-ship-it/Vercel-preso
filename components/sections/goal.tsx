@@ -27,9 +27,6 @@ export function GoalSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 
-  console.log("[v0] GoalSection rendering, count:", count);
-  console.log("[v0] isInView:", isInView, "hasAnimated:", hasAnimated);
-
   useEffect(() => {
     if (isInView && !hasAnimated) {
       setHasAnimated(true);
@@ -77,13 +74,25 @@ export function GoalSection() {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-center mb-8"
+          className="text-center mb-8 relative z-10"
+          style={{ opacity: 1 }}
         >
-          <div className="text-[120px] font-bold tracking-[-0.02em] gradient-text leading-none" style={{ color: 'transparent' }}>
+          <div 
+            className="text-[96px] font-bold tracking-[-0.02em] leading-none mb-4"
+            style={{ 
+              background: 'linear-gradient(to right, #0070F3, #00DFD8)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent'
+            }}
+          >
             ${count}M
           </div>
-          <p className="text-[32px] mt-4" style={{ color: '#FFFFFF' }}>ARR by 2030</p>
-          <p className="text-[18px] mt-2 max-w-xl mx-auto leading-relaxed" style={{ color: '#888888' }}>
+          <p className="text-[32px] font-normal" style={{ color: '#888888', opacity: 1 }}>
+            ARR by 2030
+          </p>
+          <p className="text-[18px] mt-4 mx-auto leading-relaxed" style={{ color: '#CCCCCC', opacity: 1, maxWidth: '800px' }}>
             Scale Vercel AUNZ Enterprise segment to a USD $30M ARR business
           </p>
         </motion.div>
