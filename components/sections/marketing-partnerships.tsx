@@ -57,10 +57,17 @@ const priorityEvents = {
   ],
 };
 
-const partnerTable = [
+const tier1PartnerTable = [
   { partner: "Deloitte Digital", type: "GSI/DXP", presence: "500+ digital AUNZ", overlap: "Very High (CBA, Westpac, NAB, IAG)" },
   { partner: "Accenture Cloud First", type: "GSI/Cloud", presence: "70K cloud staff globally", overlap: "High (CBA, NAB, Telstra, REA)" },
   { partner: "PwC Digital", type: "GSI/Digital", presence: "1000+ digital AUNZ", overlap: "Multi-vertical Tier 1-3" },
+];
+
+const tier2PartnerTable = [
+  { partner: "Convert Digital", clients: "Cadbury, 2XU, Ghanda, Rusty, Taylors Wines", role: "Shopify Plus, BigCommerce, high-conversion sites" },
+  { partner: "Maker.Tech", clients: "Multinational brands in commerce", role: "Commercetools, Vue Storefront, scalable MACH" },
+  { partner: "Nightjar", clients: "Destination NSW, Sonoma, House of Heat", role: "High-performing ecommerce platforms" },
+  { partner: "G Squared", clients: "Retailers aligning SEO/product strategies", role: "Headless web for integrated journeys" },
 ];
 
 const partnerPlays = [
@@ -87,6 +94,10 @@ const partnerLogos = [
   { name: "PwC", url: "/images/pwc-company-logo.svg" },
   { name: "AWS", url: "/images/amazon-web-services-logo.png" },
   { name: "Thoughtworks", url: "/images/thoughtworks-logo.png" },
+  { name: "Convert Digital", url: null },
+  { name: "Maker.Tech", url: null },
+  { name: "Nightjar", url: null },
+  { name: "G Squared", url: null },
 ];
 
 export function MarketingPartnershipsSection() {
@@ -241,9 +252,10 @@ export function MarketingPartnershipsSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            {/* Priority Partners Table */}
-            <h3 className="text-[24px] font-semibold mb-6">Priority Partners</h3>
-            <div className="overflow-x-auto mb-10">
+            {/* Tier 1 - GSI Partners Table */}
+            <h3 className="text-[24px] font-semibold mb-2">Priority Partners</h3>
+            <p className="text-[14px] text-[#0070F3] mb-4">Tier 1 - Global System Integrators</p>
+            <div className="overflow-x-auto mb-8">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-[#111111]">
@@ -254,12 +266,36 @@ export function MarketingPartnershipsSection() {
                   </tr>
                 </thead>
                 <tbody>
-                  {partnerTable.map((row) => (
+                  {tier1PartnerTable.map((row) => (
                     <tr key={row.partner} className="hover:bg-[#111111] transition-colors">
                       <td className="px-4 py-3 text-white font-medium border border-[#333333]">{row.partner}</td>
                       <td className="px-4 py-3 text-[#0070F3] border border-[#333333]">{row.type}</td>
                       <td className="px-4 py-3 text-[#888888] border border-[#333333]">{row.presence}</td>
                       <td className="px-4 py-3 text-[#50E3C2] border border-[#333333]">{row.overlap}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Tier 2 - Ecommerce SI Partners Table */}
+            <p className="text-[14px] text-[#50E3C2] mb-2">Tier 2 - Ecommerce System Integrators</p>
+            <p className="text-[12px] text-[#888888] mb-4">ANZ agencies already building on Vercel/Next.js for retail clients. They bring us ecommerce deals through existing SI relationships.</p>
+            <div className="overflow-x-auto mb-10">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-[#111111]">
+                    <th className="px-4 py-3 text-left text-[14px] font-medium text-[#888888] border border-[#333333]">Partner</th>
+                    <th className="px-4 py-3 text-left text-[14px] font-medium text-[#888888] border border-[#333333]">Key Clients / Expertise</th>
+                    <th className="px-4 py-3 text-left text-[14px] font-medium text-[#888888] border border-[#333333]">Vercel/Next.js Role</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tier2PartnerTable.map((row) => (
+                    <tr key={row.partner} className="hover:bg-[#111111] transition-colors">
+                      <td className="px-4 py-3 text-white font-medium border border-[#333333]">{row.partner}</td>
+                      <td className="px-4 py-3 text-[#888888] border border-[#333333]">{row.clients}</td>
+                      <td className="px-4 py-3 text-[#50E3C2] border border-[#333333]">{row.role}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -307,16 +343,22 @@ export function MarketingPartnershipsSection() {
               {/* Partner Logos */}
               <div>
                 <h3 className="text-[24px] font-semibold mb-4">Strategic Partners</h3>
-                <div className="bg-[#111111] border border-[#333333] rounded-xl p-6 flex flex-wrap items-center justify-center gap-8">
+                <div className="bg-[#111111] border border-[#333333] rounded-xl p-6 flex flex-wrap items-center justify-center gap-6">
                   {partnerLogos.map((logo) => (
-                    <div key={logo.name} className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
-                      <Image
-                        src={logo.url || "/placeholder.svg"}
-                        alt={logo.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
+                    logo.url ? (
+                      <div key={logo.name} className="relative h-12 w-32 grayscale hover:grayscale-0 transition-all opacity-70 hover:opacity-100">
+                        <Image
+                          src={logo.url}
+                          alt={logo.name}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                    ) : (
+                      <div key={logo.name} className="h-12 px-4 flex items-center justify-center border border-[#333333] rounded-lg opacity-70 hover:opacity-100 hover:border-[#0070F3] transition-all">
+                        <span className="text-[14px] font-medium text-white whitespace-nowrap">{logo.name}</span>
+                      </div>
+                    )
                   ))}
                 </div>
               </div>

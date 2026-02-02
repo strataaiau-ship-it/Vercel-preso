@@ -1,7 +1,9 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import Image from "next/image";
 import {
   XAxis,
   YAxis,
@@ -21,6 +23,7 @@ const chartData = [
 export function GoalSection() {
   const [count, setCount] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [showManifestModal, setShowManifestModal] = useState(false);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.5 });
 

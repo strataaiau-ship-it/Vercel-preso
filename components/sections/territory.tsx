@@ -15,7 +15,6 @@ import {
 const companies = [
   // Quick Wins (green)
   { name: "Culture Amp", revenue: 80, traffic: 1, deal: "$50-150K", cycle: "2-4 mo", quadrant: "quickWins" },
-  { name: "Rokt", revenue: 150, traffic: 2, deal: "$50-150K", cycle: "2-4 mo", quadrant: "quickWins" },
   { name: "SafetyCulture", revenue: 150, traffic: 1.5, deal: "$50-150K", cycle: "2-4 mo", quadrant: "quickWins" },
   { name: "Employment Hero", revenue: 300, traffic: 1.2, deal: "$50-150K", cycle: "2-4 mo", quadrant: "quickWins" },
   { name: "GYG", revenue: 200, traffic: 0.8, deal: "$30-100K", cycle: "2-4 mo", quadrant: "quickWins" },
@@ -51,7 +50,7 @@ const quadrantColors = {
 };
 
 const timeline = [
-  { phase: "Quick Wins", timeline: "Month 1-3", accounts: "Culture Amp, Rokt, SafetyCulture, Employment Hero, GYG, Vista", pipeline: "$600K-1.2M", rationale: "Fast cycles, prove playbook" },
+  { phase: "Quick Wins", timeline: "Month 1-3", accounts: "Culture Amp, SafetyCulture, Employment Hero, GYG, Vista", pipeline: "$600K-1.2M", rationale: "Fast cycles, prove playbook" },
   { phase: "Scale Plays", timeline: "Month 2-4", accounts: "Linktree, Canva", pipeline: "$300K-800K", rationale: "Extreme traffic, clear ROI" },
   { phase: "Performance Critical", timeline: "Month 3-6", accounts: "REA, Domain, Kogan, The Iconic, Afterpay", pipeline: "$1.5M-3M", rationale: "Conversion-sensitive" },
   { phase: "Enterprise", timeline: "Month 4-12", accounts: "CBA, Westpac, NAB, Woolworths, Telstra", pipeline: "$2M-5M", rationale: "Longer cycles, compliance" },

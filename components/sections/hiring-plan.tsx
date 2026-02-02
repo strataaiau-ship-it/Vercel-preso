@@ -40,14 +40,17 @@ const roleProfiles = [
   },
   {
     title: "Solutions Engineer",
+    subtitle: "Example: Guangmian Kung",
+    background: "Senior Solutions Architect · React/Next.js specialist · Community builder",
     icon: Target,
     qualities: [
       "4-6 years SE/SA experience",
       "Strong React/Next.js/frontend knowledge",
       "Can code live, build custom demos",
       'Sales acumen - understands deal dynamics',
-      '"Not boring" - brings energy',
-      "Field-ready - wants to meet customers",
+      '"Not boring" - brings energy to technical conversations',
+      "Field-ready - wants to be out meeting customers",
+      "Community presence (meetups, open source contributions)",
     ],
     recruitFrom: "Datadog, Twilio, MongoDB SEs, Developer Advocates",
     comp: "$180-220K OTE (70/30 split)",
@@ -279,7 +282,15 @@ export function HiringPlanSection() {
                   <div className="w-12 h-12 rounded-lg bg-[#0070F3]/10 flex items-center justify-center">
                     <role.icon className="w-6 h-6 text-[#0070F3]" />
                   </div>
-                  <h3 className="text-[20px] font-semibold text-white">{role.title}</h3>
+                  <div>
+                    <h3 className="text-[20px] font-semibold text-white">{role.title}</h3>
+                    {role.subtitle && (
+                      <p className="text-[14px] text-[#0070F3]">{role.subtitle}</p>
+                    )}
+                    {role.background && (
+                      <p className="text-[12px] text-[#888888] mt-1">{role.background}</p>
+                    )}
+                  </div>
                 </div>
 
                 <div className="space-y-4">

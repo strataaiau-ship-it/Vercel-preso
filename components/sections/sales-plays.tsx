@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
-import { ShoppingCart, Newspaper, Bot, Code2, Layers, ChevronLeft, ChevronRight, Star, Rocket } from "lucide-react";
+import { ShoppingCart, Newspaper, Bot, Code2, Layers, ChevronLeft, ChevronRight, Star, Rocket, Landmark, ShieldCheck } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 
 const salesPlays = [
@@ -56,6 +56,43 @@ const salesPlays = [
   },
   {
     badge: "PLAY 3",
+    specialBadge: "REGULATED INDUSTRIES",
+    specialIcon: ShieldCheck,
+    icon: Landmark,
+    title: "Financial Services & Banking",
+    headline: "Secure, compliant frontend cloud for mission-critical portals",
+    subhead: "Let your core business stay banking; Vercel handles the web infra",
+    targetProfile: [
+      "Banks and financial services companies",
+      "Customer portals and authenticated experiences",
+      "Compliance requirements (SOC 2, SSO, RBAC, audit logs)",
+      "Teams on bespoke AWS/Azure setups wanting to reduce infra overhead",
+    ],
+    targets: "CBA, Westpac, NAB, Macquarie, AustralianSuper, Suncorp, IAG, Afterpay, Zip",
+    pitch: "Your engineering teams are spending 50% of their time on infrastructure instead of building features. Neo Financial cut their infra admin effort in half and improved page loads by 77% - while meeting banking-grade compliance. What would that look like for NAB's customer portal?",
+    whyThisWorks: [
+      "Security posture: SOC 2, SSO, RBAC, audit logs",
+      "Reduced risk: Managed platform vs DIY AWS/Azure",
+      "Faster releases: Preview Deployments for parallel testing",
+      "Exec concerns addressed: Failover, resilience, prioritized support",
+    ],
+    salesMotion: [
+      "Land with specific property (customer portal, originations, marketing site)",
+      "Prove security/compliance posture",
+      "Demonstrate developer velocity gains",
+      "Expand to standardize frontend architecture across teams",
+    ],
+    proofPoints: [
+      { customer: "Neo Financial", result: "50% reduction in infra admin", impact: "Teams focused on features, not infra" },
+      { customer: "Neo Financial", result: "77% faster page loads", impact: "Smoother banking experience" },
+      { customer: "Neo Financial", result: "0.30% uptime improvement", impact: "Global CDN, traffic spike handling" },
+    ],
+    dealSize: "$150-500K",
+    cycle: "6-12 months",
+    buyer: "CTO / VP Engineering / Head of Digital",
+  },
+  {
+    badge: "PLAY 4",
     specialBadge: "ENTERPRISE WEDGE",
     specialIcon: Star,
     icon: Bot,
@@ -82,7 +119,7 @@ const salesPlays = [
     buyer: "CRO / VP Sales",
   },
   {
-    badge: "PLAY 4",
+    badge: "PLAY 5",
     specialBadge: null,
     icon: Code2,
     title: "SaaS AI Enablement",
@@ -107,7 +144,7 @@ const salesPlays = [
     buyer: "CTO / VP Engineering",
   },
   {
-    badge: "PLAY 5",
+    badge: "PLAY 6",
     specialBadge: "DISTRIBUTION PLAY",
     specialIcon: Rocket,
     icon: Layers,
@@ -137,6 +174,7 @@ const salesPlays = [
 const summaryTable = [
   { play: "Ecommerce", segment: "Retailers $50M+ GMV", buyer: "CTO", dealSize: "$100-300K", cycle: "3-6 mo" },
   { play: "Media", segment: "Publishers 5M+ visits", buyer: "CTO", dealSize: "$100-300K", cycle: "4-6 mo" },
+  { play: "Financial Services", segment: "Banks & Fintech", buyer: "CTO / Head of Digital", dealSize: "$150-500K", cycle: "6-12 mo" },
   { play: "B2B AI Agents", segment: "Enterprise 50+ SDRs", buyer: "CRO", dealSize: "$150-500K", cycle: "6-9 mo" },
   { play: "SaaS AI", segment: "SaaS adding AI", buyer: "CTO", dealSize: "$100-200K", cycle: "2-4 mo" },
   { play: "V0 White-Label", segment: "ProServ heavy", buyer: "CIO", dealSize: "$200-500K+", cycle: "6-12 mo" },
@@ -285,11 +323,13 @@ export function SalesPlaysSection() {
 
                         {play.whyThisWorks && (
                           <div>
-                            <p className="text-[12px] uppercase tracking-wider text-[#888888] mb-2">Why This Works as Enterprise Wedge</p>
+                            <p className="text-[12px] uppercase tracking-wider text-[#888888] mb-2">
+                              {play.title === "Financial Services & Banking" ? "Why This Works for Banks" : "Why This Works as Enterprise Wedge"}
+                            </p>
                             <ul className="space-y-1">
                               {play.whyThisWorks.map((w) => (
                                 <li key={w} className="text-[14px] text-[#888888] flex items-start gap-2">
-                                  <span className="text-[#50E3C2]">-</span>
+                                  <span className="text-[#50E3C2]">✓</span>
                                   {w}
                                 </li>
                               ))}
@@ -322,6 +362,20 @@ export function SalesPlaysSection() {
                                 </li>
                               ))}
                             </ul>
+                          </div>
+                        )}
+
+                        {play.salesMotion && (
+                          <div>
+                            <p className="text-[12px] uppercase tracking-wider text-[#888888] mb-2">Sales Motion</p>
+                            <ol className="space-y-1">
+                              {play.salesMotion.map((s, idx) => (
+                                <li key={s} className="text-[14px] text-[#888888] flex items-start gap-2">
+                                  <span className="text-[#0070F3] font-medium">{idx + 1}.</span>
+                                  {s}
+                                </li>
+                              ))}
+                            </ol>
                           </div>
                         )}
                       </div>
